@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.dao.TopicMapper">
+    <insert id="addTopic" parameterType="topic" useGeneratedKeys="true" keyProperty="pid">
+        insert into topic(fid, author, authorid, subject, view, replies, addtime)
+                    value (#{fid},#{author},#{authorid},#{subject},0,0,#{addtime})
+    </insert>
+
+    <delete id="deleteTopic" parameterType="int">
+        delete from topic where pid = #{pid}
+    </delete>
+
+    <update id="updateTopic" parameterType="topic">
+        update topic set pid=#{pid},fid=#{fid},author=#{author},authorid=#{authorid},subject=#{subject},view=#{view},
+                         replies=#{replies},addtime=#{addtime} where pid=#{pid}
+    </update>
+
+    <update id="updateTopicAddTime" >
+        update topic set replies=replies+1,addtime=#{addtime} where pid=#{pid}
+    </update>
+
+    <update id="updateTopicView" >
+        update topic set view=view+1 where pid=#{pid}
+    </update>
+
+    <select id="queryTopicByPid" parameterType="int" resultType="topic">
+        select pid, fid, author, authorid, subject, view, replies, addtime from topic where pid=#{pid}
+    </select>
+
+    <select id="queryAllTopic" resultType="topic">
+        select * from topic
+    </select>
+
+    <select id="queryTopicByFid" parameterType="int" resultType="topic">
+        select pid, fid, author, authorid, subject, view, replies, addtime from topic where fid=#{fid}
+    </select>
+
+</mapper>

@@ -1,0 +1,52 @@
+body{
+    background: url("../imge/background.jpg")no-repeat fixed;
+    width: 100%;
+    height: 100%;
+    background-size: cover;}
+.bg{
+    border: 10px white solid;
+    width: 1000px;
+    height: auto;
+    background:oldlace;
+    /*opacity: 0.7;*/
+    position: relative;
+    left: 18%;
+}
+.user{
+    text-align: center;
+    width: 250px;
+    height: 300px;
+}
+.content{
+    width: 740px;
+    height: auto;
+}
+.t_head{
+    background-color:gold;
+    font-weight:bold ;
+}
+.img_user{
+    height: 150px;
+    width: 100px;
+}
+.t_table{
+    border-collapse: collapse;
+    border:black 1px solid
+}
+.t_center{
+    border: black 1px solid;
+}
+.h_head{
+    background-color:gold;
+    font-weight:bold ;
+}
+.messageBox{
+    text-align: center;
+    width: 994px;
+    height: auto;
+    border: black 1px solid;
+}
+.messageTitle{
+    background-color:gold;
+    font-weight:bold ;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.dao.ThreadsMapper">
+    <insert id="addThread" parameterType="threads">
+        insert into threads(pid, fid, ftype, author, authorid, subject, content, addtime, tnum)
+                    value (#{pid}, #{fid}, #{ftype}, #{author}, #{authorid}, #{subject}, #{content}, #{addtime}, #{tnum})
+    </insert>
+
+    <delete id="deleteThread" parameterType="int">
+        delete from threads where tid = #{tid}
+    </delete>
+
+    <update id="updateThread" parameterType="threads">
+        update threads set tid=#{tid}, pid=#{pid}, fid=#{fid}, ftype=#{ftype}, author=#{author}, authorid=#{authorid},
+                           subject=#{subject}, content=#{content}, addtime=#{addtime}, tnum=#{tnum} where tid=#{tid}
+    </update>
+
+    <select id="queryThreadByTid" parameterType="int" resultType="threads">
+        select tid, pid, fid, ftype, author, authorid, subject, content, addtime, tnum from threads where tid = #{tid}
+    </select>
+
+    <select id="queryAllThread" resultType="threads">
+        select * from threads
+    </select>
+
+    <select id="queryThreadsByPid" parameterType="int" resultType="threads">
+        select * from threads where pid = #{pid}
+    </select>
+
+</mapper>

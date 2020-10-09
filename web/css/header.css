@@ -1,0 +1,4 @@
+a:link {color:#990000; text-decoration: none;}      /* 未访问链接*/
+a:visited {color:#990000;text-decoration: none;}  /* 已访问链接 */
+a:hover {color:#FF6600;text-decoration: underline; }  /* 鼠标移动到链接上 */
+a:active {color:#FF6600;text-decoration: underline;}  /* 鼠标点击时 */

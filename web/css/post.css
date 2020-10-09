@@ -1,0 +1,13 @@
+.postBox{
+    text-align: center;
+    width: 971px;
+    height: auto;
+    border: sandybrown 1px solid;
+}
+.postTitle{
+    background-color:gold;
+    font-weight:bold ;
+}
+.subject{
+    width: 350px;
+}

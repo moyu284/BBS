@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.dao.IndexMapper">
+
+    <select id="getTopicNum" parameterType="int" resultType="int">
+        select count(1) from topic ta left join forums tb on ta.fid=tb.fid where tb.fup= #{fid}
+    </select>
+
+    <select id="getThreadNum" parameterType="int" resultType="int">
+        select count(1) from threads ta left join forums tb on ta.fid=tb.fid where tb.fup=#{fid}
+    </select>
+
+    <select id="getAddTime" parameterType="int" resultType="String">
+        select max(addtime) from topic ta left join forums tb on ta.fid=tb.fid where tb.fup=#{fid}
+    </select>
+</mapper>

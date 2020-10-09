@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.dao.UserMapper">
+    <insert id="addUser" parameterType="user">
+        insert into user(userName, userPw, phone, email, userType, isDel)
+            value (#{userName},#{userPw},#{phone},#{email},1,0)
+    </insert>
+
+    <update id="deleteUser" parameterType="int">
+        update user set isDel = 1 where id = #{id}
+    </update>
+
+    <update id="updateUser" parameterType="user">
+        update user set id=#{id},userName=#{userName},userPw=#{userPw},phone=#{phone},email=#{email},userType=#{userType},
+                        isDel=#{isDel} where id=#{id}
+    </update>
+
+    <select id="queryUserById" parameterType="int" resultType="user">
+        select id, userName, userPw, phone, email, userType, isDel from user where id=#{id}
+    </select>
+
+    <select id="queryAllUser" resultType="user">
+        select * from user
+    </select>
+
+    <select id="queryUserByName" parameterType="string" resultType="user">
+        select * from user where userName=#{userName} and isDel != 1
+    </select>
+
+    <select id="loginCheck" parameterType="user" resultType="user">
+        select * from user where userName=#{userName} and userPw=#{userPw} and isDel != 1
+    </select>
+</mapper>

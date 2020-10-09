@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.dao.ForumsMapper">
+    <insert id="addForums" parameterType="forums">
+        insert into forums(type,name,fup,status) value (#{type},#{name},#{fup},1)
+    </insert>
+
+    <update id="deleteForums" parameterType="int">
+        update  forums set status = 0 where fid = #{fid}
+    </update>
+
+    <update id="updateForums" parameterType="forums">
+        update forums set fid=#{fid},type=#{type},name=#{name},fup=#{fup},status=#{status} where fid=#{fid}
+    </update>
+
+    <select id="queryForumsByFid" parameterType="int" resultType="forums">
+        select * from forums where fid=#{fid} and status != 0
+    </select>
+
+    <select id="queryAllForums" resultType="forums">
+        select * from forums
+    </select>
+</mapper>
